@@ -5,14 +5,14 @@ import '../styles/mobile.styl';
 import '../styles/tablet.styl';
 import '../styles/desktop.styl';
 import Layout from '../components/Layout';
-
-const Dash = () => <div>Dash</div>;
+import Hero from '../components/Hero';
 
 const App = () => (
   <>
     <Router>
-      <Layout path="/" />
-      <Dash path="dashboard" />
+      <Layout path="/">
+        <Hero path="/hero" />
+      </Layout>
     </Router>
   </>
 );
