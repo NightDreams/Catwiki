@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Layout = ({ chilldren }) => (
-  <div className="layout">
-    <header>Logos</header>
-    {children}
-    <footer>footer test </footer>
-  </div>
-);
-
+const Layout = ({ children }) => {
+  return (
+    <div className="layout">
+      <div className="logo">Logos</div>
+      {children}
+      <div>footer test </div>
+    </div>
+  );
+};
 export default Layout;

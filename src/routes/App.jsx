@@ -7,14 +7,17 @@ import '../styles/desktop.styl';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 
-const App = () => (
-  <>
-    <Router>
-      <Layout path="/">
-        <Hero path="/hero" />
-      </Layout>
-    </Router>
-  </>
-);
+export const Fese3 = () => <h3>fefefe</h3>;
+
+const App = () => {
+  return (
+    <Layout>
+      <Router>
+        <Hero path="/" />
+        <Fese3 path="greg" />
+      </Router>
+    </Layout>
+  );
+};
 
 export default App;
