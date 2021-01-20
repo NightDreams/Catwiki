@@ -4,8 +4,8 @@
     /* weight */
     --font-h1: 700 40px / 48px Montserrat;
     --font-h2: 700 18px / 22px Montserrat;
-    --font-h3-section: 500 12px / 14px Montserrat;
-    --font-h4-tags: 600 12px / 14px Montserrat;
+    --font-h3: 500 12px / 14px Montserrat;
+    --font-h4-tags: 600 10px / 14px Montserrat;
     --font-p: 500 18px / 22px Montserrat;
     --font-small: 500 10px / 12px Montserrat;
     // margins
@@ -36,6 +36,7 @@
 
   body {
     display: grid;
+    justify-content: center;
     background-color: #f2f2f2;
     padding: 0 18px;
   }
@@ -64,10 +65,6 @@
     font: var(--font-small);
   }
 
-  .hero {
-    padding: 0 29px;
-  }
-
   .baner {
     padding-top: 21px;
     padding-left: 29px;
@@ -85,9 +82,51 @@
 
   .galery {
     height: 550px;
+    padding: 0 29px;
     padding-top: 21px;
-    padding-left: 29px;
     border-radius: 0 0 40px 40px;
     background-color: antiquewhite;
+  }
+
+  .galery_img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 13px;
+    border-radius: 12px;
+  }
+
+  .galery_img figure {
+    width: 135px;
+    height: 135px;
+    background: aliceblue;
+    border-radius: 12px;
+  }
+
+  .galery h3 {
+    font: var(--font-h3);
+  }
+
+  .galery hr {
+    height: 3px;
+    width: 33px;
+    background: black;
+    border: black;
+    border-radius: 12px;
+  }
+
+  .galery h2 {
+    font: var(--font-h2);
+    margin-top: 17px;
+    margin-bottom: 26px;
+  }
+
+  .galery_img p {
+    font: var(--font-h4-tags);
+    margin-top: 3px;
+    margin-left: 1px;
+  }
+
+  .hero {
+    width: 339px;
   }
 }
