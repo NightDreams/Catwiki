@@ -5,7 +5,12 @@ const Layout = ({ children }) => {
     <div className="layout">
       <div className="logo">Logos</div>
       {children}
-      <div>footer test </div>
+      <div className="footer">
+        <figure>
+          <img src="" alt="catwiki" />
+        </figure>
+        <p>© You name - devchallenge.io 2020</p>
+      </div>
     </div>
   );
 };
