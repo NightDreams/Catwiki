@@ -97,7 +97,6 @@
   }
 
   .galery {
-    min-height: 523px;
     padding: 0 29px;
     padding-top: 21px;
     border-radius: 0 0 40px 40px;
@@ -113,11 +112,11 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 13px;
     border-radius: 12px;
+    padding-bottom: 54px;
   }
 
   .galery_img figure {
-    width: 135px;
-    height: 135px;
+    height: 78.7px;
     background: aliceblue;
     border-radius: 12px;
   }
@@ -142,12 +141,31 @@
 
   .galery_img p {
     font: var(--font-h4-tags);
-    margin-top: 3px;
+    margin-top: 6px;
     margin-left: 1px;
   }
 
+  .row1 > hr:nth-child(1) {
+    height: 3px;
+    width: 50px;
+    background: #000;
+    border: #000;
+    border-radius: 12px;
+    margin-top: 63px;
+  }
+
+  .row1 > h2:nth-child(2) {
+    font-size: 36px;
+  }
+
+  .row1 {
+    display: grid;
+  }
+
   .hero {
-    max-width: 339px;
+    // max-width: 339px;
+    max-width: 320px;
+    padding: 9px 22px;
   }
 
   .baner button {
@@ -160,16 +178,18 @@
 
   .row1 h2 {
     font: var(--font-h1);
-    margin-top: 85px;
-    margin-bottom: 42px;
+    font-size: 36px;
+    margin-top: 18px;
+    margin-bottom: 20px;
   }
 
   .row1 p {
-    font: var(--font-p);
+    font: 500 14px / 21px Montserrat;
   }
 
   .link {
     font: var(--font-small);
+    justify-self: start;
     font: 700 12px / 14px Montserrat;
     margin-top: 27px;
     color: rgba(41, 21, 7, 0.6);
@@ -187,22 +207,17 @@
   }
 
   .cats > figure:nth-child(1) > img:nth-child(1) {
-    width: 172.03px;
     height: 105.09px;
     background: antiquewhite;
   }
 
   .cats > figure:nth-child(1) > img:nth-child(2) {
-    justify-self: right;
-    width: 149.98px;
     height: 242.69px;
     background: #0ff;
   }
 
   .cats > figure:nth-child(1) > img:nth-child(3) {
-    width: 122.95px;
     height: 184.43px;
-    justify-self: right;
     background: #f0ffff;
   }
 

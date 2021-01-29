@@ -21,7 +21,10 @@ const Hero = () => (
     <section className="galery">
       <h3> Most Searched Breeds</h3>
       <hr />
-      <h2>66+ Breeds For you to discover</h2>
+      <div className="galery__title">
+        <h2>66+ Breeds For you to discover</h2>
+        <button className="link">SEE MORE</button>
+      </div>
       <div className="galery_img">
         <div>
           <figure>
@@ -51,6 +54,7 @@ const Hero = () => (
     </section>
     <section className="post">
       <div className="row1">
+        <hr />
         <h2>Why should you have a cat?</h2>
         <p>
           Having a cat around you can actually trigger the release of calming
