@@ -1,12 +1,16 @@
 import React from 'react';
-import { MdSearch } from 'react-icons/md';
 
-const Baner = () => {
+import { MdSearch } from 'react-icons/md';
+import CatwikiLogo from '../../../assets/CatwikiLogo.jsx';
+import './styles.styl';
+import HeroImg from '../../../assets/baner.png';
+
+export const Baner = () => {
   return (
     <section className="baner">
       <div>
         <figure>
-          <img src="" alt="catwiki" />
+          <CatwikiLogo id="logo--white" />
         </figure>
         <p>Get to know more about your cat breed</p>
         <button>
@@ -15,10 +19,8 @@ const Baner = () => {
         </button>
       </div>
       <figure>
-        <img src="" alt="Gatopng" />
+        <img className="hero" src={HeroImg} alt="Gatopng" />
       </figure>
     </section>
   );
 };
-
-export default Baner;

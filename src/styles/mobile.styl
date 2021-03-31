@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 375px) {
   :root {
     /* fonts */
     /* weight */
@@ -52,7 +52,6 @@
   .logo {
     width: 127px;
     height: 43px;
-    background: aqua;
     margin-top: 12px;
     margin-bottom: 24px;
   }
@@ -109,16 +108,23 @@
 
   .galery_img {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-gap: 13px;
-    border-radius: 12px;
-    padding-bottom: 54px;
+    justify-content: center;
   }
 
   .galery_img figure {
-    height: 78.7px;
     background: aliceblue;
     border-radius: 12px;
+    width: 135px;
+    height: 135px;
+    overflow: hidden;
+  }
+
+  .Breed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .galery h3 {
@@ -206,12 +212,12 @@
     margin-bottom: 22px;
   }
 
-  .cats > figure:nth-child(1) > img:nth-child(1) {
+  .cats .cat__1 {
     height: 105.09px;
     background: antiquewhite;
   }
 
-  .cats > figure:nth-child(1) > img:nth-child(2) {
+  .cats .cat__2 {
     height: 242.69px;
     background: #0ff;
   }

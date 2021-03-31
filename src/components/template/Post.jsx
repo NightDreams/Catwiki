@@ -15,8 +15,10 @@ const Post = () => {
       <div className="row">
         <div className="cats">
           <figure>
-            <img src="" alt="cat1" />
-            <img src="" alt="cat2" />
+            <img className="cat__1" src="" alt="cat1" />
+            <img className="cat__2" src="" alt="cat2" />
+          </figure>
+          <figure className="cat__3">
             <img src="" alt="cat3" />
           </figure>
         </div>

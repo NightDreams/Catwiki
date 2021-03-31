@@ -1,5 +1,6 @@
 import React from 'react';
-import Baner from '../components/template/Baner';
+
+import { Baner } from '../components/template/Baner';
 import Galery from '../components/template/Galery';
 import Post from '../components/template/Post';
 

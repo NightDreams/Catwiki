@@ -1,9 +1,12 @@
 import React from 'react';
+import CatwikiLogo from '../assets/CatwikiLogo';
 
 const Layout = ({ children }) => {
   return (
     <div className="layout">
-      <div className="logo">Logos</div>
+      <figure className="logo">
+        <CatwikiLogo />
+      </figure>
       {children}
       <div className="footer">
         <figure>
