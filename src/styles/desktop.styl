@@ -2,7 +2,8 @@
   :root {
     --title-h3: 600 36px / 43px Montserrat;
     --bold: 700 16px / 20px Montserrat;
-    --parrafo-p: 500 18px / 21px Montserrat;
+    --parrafo-p: 500 18px / 140% Montserrat;
+    --text-li: 500 16px / 20px Montserrat;
   }
 
   * {
@@ -147,8 +148,39 @@
       margin: 32px 0;
     }
 
-    & p::first-letter {
+    & li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font: var(--text-li);
+      margin: 32px 0;
+      list-style: none;
+    }
+
+    & p::first-letter, li::first-letter, b::first-letter {
       text-transform: uppercase;
+    }
+  }
+
+  .tags {
+    width: 511px;
+  }
+
+  .rating {
+    display: flex;
+    grid-gap: 8.5px;
+    height: 12px;
+
+    & span {
+      width: 60px;
+      height: 12px;
+      display: inline-block;
+      background: #E0E0E0;
+      border-radius: 8px;
+    }
+
+    .fill {
+      background: #544439;
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Rating from './Rating';
 
 const Breed = ({ data }) => {
   const tag = data.breeds[0];
@@ -30,46 +31,53 @@ const Breed = ({ data }) => {
         </figure>
         <div className="breed_data">
           <h3>{tag.name || 'Bengal'}</h3>
-          <p>{` Descripción ${tag.description}`}</p>
-          <p>
-            <b> temperament:</b>
-            {`  ${tag.temperament}`}
-          </p>
-          <p>
-            <b>origen: </b>
-            {`${tag.origin}`}
-          </p>
-          <p>
-            <b>life_span:</b>
-            {` ${tag.life_span}`}
-          </p>
-          <p>
-            <b>adaptability:</b> {` ${tag.adaptability}`}
-          </p>
-          <p>
-            <b>friendly:</b>
-            {` ${tag.child_friendly}`}
-          </p>
-          <p>
-            <b>grooming</b>
-            {` ${tag.grooming}`}
-          </p>
-          <p>
-            <b>intelligence:</b>
-            {` ${tag.intelligence}`}
-          </p>
-          <p>
-            <b>healt issues: </b>
-            {`${tag.health_issues}`}
-          </p>
-          <p>
-            <b>social needs:</b>
-            {` ${tag.social_needs}`}
-          </p>
-          <p>
-            <b>stranger friendly:</b>
-            {` ${tag.social_needs}`}
-          </p>
+          <div className="tags">
+            <p>{`${tag.description}`}</p>
+            <li>
+              <b> temperament:</b>
+              {`  ${tag.temperament}`}
+            </li>
+            <li>
+              <b>origen: </b>
+              {`${tag.origin}`}
+            </li>
+            <li>
+              <b>life_span:</b>
+              {` ${tag.life_span} yeas`}
+            </li>
+            <li>
+              <b>adaptability:</b>
+              <Rating score={tag.adaptability} tag="ab" />
+            </li>
+            <li>
+              <b>affection_level:</b>
+              <Rating score={tag.adaptability} tag="al" />
+            </li>
+            <li>
+              <b>Child friendly:</b>
+              <Rating score={tag.child_friendly} tag="cf" />
+            </li>
+            <li>
+              <b>grooming</b>
+              <Rating score={tag.grooming} tag="gmm" />
+            </li>
+            <li>
+              <b>intelligence:</b>
+              <Rating score={tag.intelligence} tag="iq" />
+            </li>
+            <li>
+              <b>healt issues: </b>
+              <Rating score={tag.health_issues} tag="hs" />
+            </li>
+            <li>
+              <b>social needs:</b>
+              <Rating score={tag.social_needs} tag="sn" />
+            </li>
+            <li>
+              <b>stranger friendly:</b>
+              <Rating score={tag.stranger_friendly} tag="sf" />
+            </li>
+          </div>
         </div>
       </div>
       <div className="Breed__pictures">
