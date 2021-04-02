@@ -9,7 +9,7 @@ export const Baner = () => {
   return (
     <section className="baner">
       <div>
-        <figure>
+        <figure className="baner__figure">
           <CatwikiLogo id="logo--white" />
         </figure>
         <p>Get to know more about your cat breed</p>

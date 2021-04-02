@@ -16,7 +16,7 @@ const Breed = ({ data }) => {
     },
   };
   useEffect(async () => {
-    const catId = data.breeds[0].id;
+    // const catId = data.breeds[0].id;
     const gatos = await axios.get(urlImages, config);
     setcatPics(gatos.data);
   }, []);
@@ -43,7 +43,7 @@ const Breed = ({ data }) => {
             </li>
             <li>
               <b>life_span:</b>
-              {` ${tag.life_span} yeas`}
+              {` ${tag.life_span} years`}
             </li>
             <li>
               <b>adaptability:</b>

@@ -1,5 +1,6 @@
 @media screen and (min-width: 1440px) {
   :root {
+    --f-link: 600 18px / 22px Monserrat;
     --title-h3: 600 36px / 43px Montserrat;
     --bold: 700 16px / 20px Montserrat;
     --parrafo-p: 500 18px / 140% Montserrat;
@@ -15,21 +16,35 @@
   body {
     display: grid;
     justify-content: center;
-    background-color: #f2f2f2;
+    background-color: whitesmoke;
     padding: 0 18px;
   }
 
   .layout {
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0 96px;
+
+    & footer {
+      max-width: unset;
+    }
+
+    a {
+      align-self: start;
+    }
   }
 
   .post {
     display: grid;
+    grid-template-columns: 447px auto;
+    justify-content: space-between;
     grid-auto-flow: column;
-    grid-template-columns: 447px 1fr;
     margin: 100px 0;
-    grid-gap: 46px;
+    grid-gap: 83px;
+    padding: 0 9%;
   }
 
   .row1 {
@@ -49,6 +64,13 @@
   .galery {
     padding-top: 40px;
     height: 686px;
+    padding-left: 9%;
+  }
+
+  .galery a {
+    font: var(--f-link);
+    text-decoration: none;
+    color: #291507;
   }
 
   .galery__title {
@@ -60,6 +82,7 @@
 
   .galery__title button {
     align-self: end;
+    display: unset;
   }
 
   .galery > h3:nth-child(1) {
@@ -76,8 +99,7 @@
     grid-auto-flow: column;
     grid-template-rows: initial;
     grid-gap: 50px;
-    justify-content: center;
-    grid-template-r: unset;
+    justify-content: space-between;
   }
 
   .galery h2 {
@@ -223,7 +245,6 @@
   .cat__3 {
     width: 238.47px;
     height: 385.87px;
-    background: antiquewhite;
     border-radius: 24px;
   }
 
@@ -271,16 +292,12 @@
   .footer {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     padding: 0 100px;
-  }
+    min-width: 100%;
 
-  .footer p {
-    margin-top: 37px;
-  }
-
-  .footer > figure:nth-child(1) {
-    margin-top: 37px;
+    & svg {
+      width: 130px;
+    }
   }
 
   .layout > div:nth-child(3) {

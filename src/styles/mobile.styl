@@ -1,6 +1,7 @@
 @media screen and (min-width: 375px) {
   :root {
     /* fonts */
+    --f-link: 600 12px / 14px Monserrat;
     /* weight */
     --logo: 500 14px / 19px Montserrat;
     --font-h1: 700 40px / 48px Montserrat;
@@ -39,13 +40,12 @@
   body {
     display: grid;
     justify-content: center;
-    background-color: #f2f2f2;
     padding: 0 18px;
+    background: #fff;
   }
 
   .layout {
     display: grid;
-    padding: 0 18px;
     background: #FFFFFF;
   }
 
@@ -57,29 +57,58 @@
   }
 
   .baner {
-    padding-top: 21px;
-    background-color: cyan;
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 135px 1fr;
-    border-radius: 42px 42px 0 0;
-    border: 1px solid;
+    color: black;
+    background-color: black;
+    overflow: hidden;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'stack';
     font: var(--font-small);
+    border-radius: 40px 40px 0 0;
+
+    & div {
+      color: white;
+      grid-area: stack;
+      padding-left: 9%;
+    }
+
+    & figure {
+      grid-area: stack;
+      order: -1;
+      fill: white;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+
+  .baner__figure {
+    width: 46px;
+    padding-top: 21px;
+
+    & svg {
+      width: 100%;
+    }
   }
 
   .baner p {
     font: var(--font-small);
+    width: 140px;
   }
 
-  .baner {
-    padding-top: 21px;
-    padding-left: 29px;
-  }
+  // .baner {
+  // padding-top: 21px;
+  // padding-left: 29px;
+  // }
 
-  .baner > div:nth-child(1) > figure:nth-child(1) {
-    margin-bottom: 8px;
-  }
-
+  // .baner > div:nth-child(1) > figure:nth-child(1) {
+  // margin-bottom: 8px;
+  // }
   .baner button {
     margin: 18px 0;
     margin-bottom: 25px;
@@ -102,15 +131,23 @@
     background-color: antiquewhite;
   }
 
+  .galery a {
+    font: var(--f-link);
+    text-decoration: none;
+    color: #291507;
+  }
+
   .galery h3 {
     margin-bottom: 6px;
   }
 
   .galery_img {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid: '1fr 1fr';
     grid-gap: 13px;
     justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    padding-bottom: 55px;
   }
 
   .galery_img figure {
@@ -166,14 +203,17 @@
 
   .row1 {
     display: grid;
+
+    & button {
+      display: unset;
+      margin-bottom: unset;
+    }
   }
 
-  .hero {
-    // max-width: 339px;
-    max-width: 320px;
-    padding: 9px 22px;
-  }
-
+  // .hero {
+  // // max-width: 339px;
+  // padding: 9px 22px;
+  // }
   .baner button {
     font: var(--font-h3);
   }
@@ -202,6 +242,48 @@
     margin-bottom: 64px;
     border: unset;
     background: unset;
+    display: none;
+  }
+
+  .cats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 16px;
+  }
+
+  .cats > figure:nth-child(1) {
+    grid-gap: 27px;
+    grid-template-columns: unset;
+  }
+
+  .cat__1 {
+    width: 172.03px;
+    border-radius: 24px;
+    height: 105.09px;
+    background: antiquewhite;
+  }
+
+  .cat__2 {
+    border-radius: 24px;
+    width: 122.95px;
+    height: 184.43px;
+    justify-self: right;
+  }
+
+  .cat__3 {
+    width: 149.98px;
+    height: 242.69px;
+    border-radius: 24px;
+
+    & img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .row1 {
+    margin-bottom: 65px;
   }
 
   .cats figure {
@@ -212,23 +294,13 @@
     margin-bottom: 22px;
   }
 
-  .cats .cat__1 {
-    height: 105.09px;
-    background: antiquewhite;
-  }
-
-  .cats .cat__2 {
-    height: 242.69px;
-    background: #0ff;
-  }
-
   .cats > figure:nth-child(1) > img:nth-child(3) {
     height: 184.43px;
     background: #f0ffff;
   }
 
-  .layout > div:nth-child(3) {
-    max-width: 339px;
+  .layout footer {
+    align-items: center;
     padding: 0 29px;
     /* padding-top: 0px; */
     padding-top: 17px;
@@ -242,8 +314,17 @@
     font: var(--logo);
   }
 
+  .footer svg {
+    fill: white;
+    width: 70px;
+  }
+
   .footer p {
-    font: 400 14px / 19px Montserrat;
-    margin-top: 23px;
+    font: 400 12px / 14px Montserrat;
+
+    & svg {
+      width: 70px;
+      height: fit-content;
+    }
   }
 }

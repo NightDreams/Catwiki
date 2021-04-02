@@ -1,19 +1,24 @@
 import React from 'react';
 import CatwikiLogo from '../assets/CatwikiLogo';
+import { Link } from '@reach/router';
 
 const Layout = ({ children }) => {
   return (
     <div className="layout">
-      <figure className="logo">
-        <CatwikiLogo />
-      </figure>
-      {children}
-      <div className="footer">
-        <figure>
-          <img src="" alt="catwiki" />
+      <Link to="/">
+        <figure className="logo">
+          <CatwikiLogo />
         </figure>
-        <p>© You name - devchallenge.io 2020</p>
-      </div>
+      </Link>
+      {children}
+      <footer className="footer">
+        <Link to="/">
+          <CatwikiLogo id="logo--white" />
+        </Link>
+        <p>
+          © created by <b>NightDreams </b> - devChallenge.io 2021
+        </p>
+      </footer>
     </div>
   );
 };
