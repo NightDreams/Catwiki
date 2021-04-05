@@ -32,8 +32,8 @@ const Galery = () => {
 
   return (
     <section className="galery">
-      {Breeds && Breeds.map((e) => console.log(e.breeds[0].name))}
-      {Breeds && Breeds.map((e) => console.log(e))}
+      {/* {Breeds && Breeds.map((e) => console.log(e.breeds[0].name))} */}
+      {/* {Breeds && Breeds.map((e) => console.log("Id de la raza"e.breeds[0].id))} */}
       {/* {(Breeds.lenght = 0) & Breeds.map((e) => console.log(e))} */}
       <h3> Most Searched Breeds</h3>
       <hr />

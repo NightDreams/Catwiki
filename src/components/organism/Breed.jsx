@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Rating from './Rating';
+import useBreedGalery from '../../apiHooks/useBreedGalery';
 
 const Breed = ({ data }) => {
   const tag = data.breeds[0];
   const id = tag.id;
-
-  const urlImages = `https://api.thecatapi.com/v1/images/search?limit=8&breed_id=${id}`;
-  const [catPics, setcatPics] = useState(null);
-
-  var config = {
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': '8f34cd37-dd49-45a2-a0e4-1ccd65f582b6s',
-    },
-  };
-  useEffect(async () => {
-    // const catId = data.breeds[0].id;
-    const gatos = await axios.get(urlImages, config);
-    setcatPics(gatos.data);
-  }, []);
-  // catPics && console.log('pcitures para map', catPics);
+  const [GaleryBreed] = useBreedGalery(id);
 
   return (
     <>
@@ -34,8 +20,8 @@ const Breed = ({ data }) => {
           <div className="tags">
             <p>{`${tag.description}`}</p>
             <li>
-              <b> temperament:</b>
-              {`  ${tag.temperament}`}
+              <b>temperament:</b>
+              {` ${tag.temperament}`}
             </li>
             <li>
               <b>origen: </b>
@@ -83,8 +69,8 @@ const Breed = ({ data }) => {
       <div className="Breed__pictures">
         <h3>other photos</h3>
         <div className="Breed__wrapper">
-          {catPics &&
-            catPics.map((e) => (
+          {GaleryBreed &&
+            GaleryBreed.map((e) => (
               <figure key={e.id}>
                 <img src={e.url} alt={name} />
               </figure>
