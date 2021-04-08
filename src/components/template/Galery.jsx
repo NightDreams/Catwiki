@@ -29,7 +29,7 @@ const Galery = () => {
     const data4 = await axios.get(srex, config);
     setBreeds([...data1.data, ...data2.data, ...data3.data, ...data4.data]);
   }, []);
-
+  console.log('Galery', Breeds);
   return (
     <section className="galery">
       {/* {Breeds && Breeds.map((e) => console.log(e.breeds[0].name))} */}
@@ -37,10 +37,12 @@ const Galery = () => {
       {/* {(Breeds.lenght = 0) & Breeds.map((e) => console.log(e))} */}
       <h3> Most Searched Breeds</h3>
       <hr />
-      <div className="galery__title">
-        <h2>66+ Breeds For you to discover</h2>
-        <button className="link">SEE MORE</button>
-      </div>
+      <Link to="/top10">
+        <div className="galery__title">
+          <h2>66+ Breeds For you to discover</h2>
+          <button className="link">SEE MORE</button>
+        </div>
+      </Link>
 
       <div className="galery_img">
         {Breeds &&

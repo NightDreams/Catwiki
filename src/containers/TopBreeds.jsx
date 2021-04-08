@@ -1,23 +1,38 @@
-import React from 'react';
-import styles from './topbreed.styl';
+import React, { useState } from 'react';
+import Cat from '../components/template/Cat';
+import useTopBreeds from '../apiHooks/useTopBreeds';
+
 const TopBreeds = () => {
-  return (
-    <div className="TopBreeds">
-      <h2>Top 10 most searched breeds</h2>
-      <div className="catList">
-        <div className="cat">
-          <img src="" alt="GatoBengala  " />
-          <h3>1. Bengal</h3>
-          <p>
-            Bengals are a lot of fun to live with, but they're definitely not
-            the cat for everyone, or for first-time cat owners. Extremely
-            intelligent, curious and active, they demand a lot of interaction
-            and woe betide the owner who doesn't provide it.{' '}
-          </p>
+  const [page, setpage] = useState(0);
+  const { top10, loading, error } = useTopBreeds(page);
+  // top10 && console.log(top10);
+
+  if (loading) {
+    return <div className="TopBreeds">loading component... </div>;
+  }
+
+  if (top10) {
+    return (
+      <div className="TopBreeds">
+        <h2>Top 10 most searched breeds</h2>
+        <button onClick={() => setpage(page + 1)}>next </button>
+        <div className="catList">
+          {top10.map((e) => (
+            <Cat
+              key={e.id}
+              src={e.image.url}
+              name={e.name}
+              desc={e.description}
+              imgID={e.image.id}
+            />
+          ))}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  if (error) {
+    return <div className="TopBreeds">error component... </div>;
+  }
 };
 
 export default TopBreeds;
