@@ -1,4 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
+import { Link } from '@reach/router';
 import useBreedList from '../apiHooks/useBreedList';
 import './search.styl';
 import { MdSearch } from 'react-icons/md';
@@ -14,8 +15,8 @@ const Search = () => {
     setSearch(searchInput.current.value);
   };
 
-  useEffect(() => {}, [on, search, BreedList, loading, error]);
-  // top10 && console.log(top10);
+  // useEffect(() => {}, [on, search, BreedList, loading, error]);
+  BreedList && console.log(BreedList);
   BreedList && console.log(BreedList.length);
   if (loading) {
     return <div className="TopBreeds">loading component... </div>;
@@ -57,7 +58,9 @@ const Search = () => {
 
         <div className={`SearchList`} id={on}>
           {filterBreeds.map((e) => (
-            <p key={e.id}>{e.name}</p>
+            <Link to={`/breed/${e.reference_image_id}`}>
+              <p key={e.id}>{e.name}</p>
+            </Link>
           ))}
           {/* {BreedList.map((e) => (
             <p key={e.id}>{e.name}</p>

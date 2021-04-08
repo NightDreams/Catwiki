@@ -15,9 +15,13 @@ const Layout = ({ children }) => {
         <Link to="/">
           <CatwikiLogo id="logo--white" />
         </Link>
-        <p>
+        <a
+          className="repo"
+          target="blank"
+          href="https://github.com/NightDreams/Catwiki"
+        >
           © created by <b>NightDreams </b> - devChallenge.io 2021
-        </p>
+        </a>
       </footer>
     </div>
   );
