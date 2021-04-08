@@ -55,7 +55,7 @@ const Search = () => {
           </IconContext.Provider>
         </div>
 
-        <div className={`catList`} id={on}>
+        <div className={`SearchList`} id={on}>
           {filterBreeds.map((e) => (
             <p key={e.id}>{e.name}</p>
           ))}

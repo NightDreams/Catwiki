@@ -10,7 +10,6 @@ import Layout from '../components/Layout';
 import Hero from '../containers/Hero';
 import { BreedComponent } from '../containers/BreedComponent';
 import TopBreeds from '../containers/TopBreeds';
-import Search from '../containers/Search';
 
 const App = () => {
   return (
@@ -18,7 +17,6 @@ const App = () => {
       <Router>
         <Hero path="/" />
         <TopBreeds path="/top10" />
-        <Search path="/search" />
         <BreedComponent path="/breed/:breedId" />
       </Router>
     </Layout>
