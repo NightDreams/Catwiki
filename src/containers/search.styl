@@ -1,7 +1,7 @@
 @media screen and (min-width: 1440px) {
   .search {
     padding: unset;
-    position: absolute;
+    // position: absolute;
     margin-top: 52px;
     padding: unset;
   }
@@ -26,13 +26,13 @@
   }
 
   // scrollbar
-  .catList::-webkit-scrollbar {
+  .SearchList::-webkit-scrollbar {
     // background: #F2F2F2;
     // border-radius: 12px;
     width: 10px;
   }
 
-  .catList::-webkit-scrollbar-thumb {
+  .SearchList::-webkit-scrollbar-thumb {
     border-radius: 10px;
     height: 50px;
     background: #BDBDBD;
@@ -42,6 +42,11 @@
     display: block;
     padding: 0;
     color: black;
+    position: absolute;
+  }
+
+  .search .searchWrapper {
+    padding: 0 28px;
   }
 
   .searchWrapper {
@@ -57,7 +62,7 @@
     align-items: center;
   }
 
-  .catList {
+  .SearchList {
     width: 394.62px;
     height: 219.72px;
     overflow: auto;
