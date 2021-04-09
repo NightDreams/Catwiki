@@ -29,7 +29,7 @@ const Galery = () => {
     const data4 = await axios.get(srex, config);
     setBreeds([...data1.data, ...data2.data, ...data3.data, ...data4.data]);
   }, []);
-  console.log('Galery', Breeds);
+  Breeds && console.log('Galery', Breeds);
   return (
     <section className="galery">
       {/* {Breeds && Breeds.map((e) => console.log(e.breeds[0].name))} */}

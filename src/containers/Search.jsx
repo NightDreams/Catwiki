@@ -16,8 +16,8 @@ const Search = () => {
   };
 
   // useEffect(() => {}, [on, search, BreedList, loading, error]);
-  BreedList && console.log(BreedList);
-  BreedList && console.log(BreedList.length);
+  // BreedList && console.log(BreedList);
+  // BreedList && console.log(BreedList.length);
   if (loading) {
     return <div className="TopBreeds">loading component... </div>;
   }
@@ -58,8 +58,8 @@ const Search = () => {
 
         <div className={`SearchList`} id={on}>
           {filterBreeds.map((e) => (
-            <Link to={`/breed/${e.reference_image_id}`}>
-              <p key={e.id}>{e.name}</p>
+            <Link key={e.id} to={`/breed/${e.reference_image_id}`}>
+              <p>{e.name}</p>
             </Link>
           ))}
           {/* {BreedList.map((e) => (
