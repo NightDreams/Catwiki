@@ -2,5 +2,5 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './routes/App';
 
-ReactDOM.render(<App />, document.querySelector('body'));
+ReactDOM.render(<App />, document.getElementById('app'));
 // Setup tailwind in thje future
