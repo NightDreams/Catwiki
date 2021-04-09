@@ -17,19 +17,41 @@ const useTopBreeds = (page) => {
 
   useEffect(async () => {
     let ignore = false;
-    const fetchProduct = async () => {
-      setLoading(true);
-      try {
-        setError({});
-        const { data } = await axios.get(rootURL, config);
-        !ignore && setTop10(data);
-      } catch (err) {
-        setError(err);
-      }
-      setLoading(false);
-    };
+    // const fetch = async () => {
+    //   await axios.get(rootURL, config);
+    // };
+    setLoading(true);
+    setError({});
+    // const fetch = await axios
+    //   .get(rootURL, config)
+    //   .then((res) => console.log('res', res))
+    //   .catch((error) => console.log(error));
+    await axios
+      .get(rootURL, config)
+      .then((e) => {
+        !ignore && setTop10(e.data);
+      })
+      .catch((error) => {
+        // console.log('error objet ', error.toJSON());
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log('data ', error.response.data);
+          console.log('status', error.response.status);
+          console.log('headers', error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        console.log('config', error.config);
+      });
+    setLoading(false);
 
-    fetchProduct();
     return () => {
       ignore = true;
     };
