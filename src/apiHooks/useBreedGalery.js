@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const useBreedGalery = (id) => {
   const [GaleryBreed, setGaleryBreed] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const urlImages = `https://api.thecatapi.com/v1/images/search?limit=8&breed_id=${id}`;
 
   var config = {
@@ -12,11 +14,44 @@ const useBreedGalery = (id) => {
     },
   };
   useEffect(async () => {
-    // const catId = data.breeds[0].id;
-    const gatos = await axios.get(urlImages, config);
-    setGaleryBreed(gatos.data);
-  }, []);
-  return [GaleryBreed];
+    let ignore = false;
+    setLoading(true);
+    setError(null);
+    await axios
+      .get(urlImages, config)
+      .then((e) => {
+        !ignore && setGaleryBreed(e.data);
+      })
+      .catch((error) => {
+        // console.log('error objet ', error.toJSON());
+        if (error.response) {
+          setError(error.response);
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log('data ', error.response.data);
+          console.log('status', error.response.status);
+          console.log('headers', error.response.headers);
+        } else if (error.request) {
+          setError(error.request);
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          setError(error.message);
+          console.log('Error', error.message);
+        }
+        setError(error.config);
+
+        console.log('config', error.config);
+      });
+    setLoading(false);
+    return () => {
+      ignore = true;
+    };
+  }, [id]);
+  return { GaleryBreed, loading, error };
 };
 
 export default useBreedGalery;

@@ -15,6 +15,15 @@ const Search = () => {
     setSearch(searchInput.current.value);
   };
 
+  const filterBreeds = useMemo(
+    () =>
+      BreedList &&
+      BreedList.filter((breed) => {
+        return breed.name.toLowerCase().includes(search.toLowerCase());
+      }),
+    [BreedList, search]
+  );
+
   // useEffect(() => {}, [on, search, BreedList, loading, error]);
   // BreedList && console.log(BreedList);
   // BreedList && console.log(BreedList.length);
@@ -23,9 +32,9 @@ const Search = () => {
   }
 
   if (BreedList) {
-    const filterBreeds = BreedList.filter((breed) => {
-      return breed.name.toLowerCase().includes(search.toLowerCase());
-    });
+    // const filterBreeds = BreedList.filter((breed) => {
+    //   return breed.name.toLowerCase().includes(search.toLowerCase());
+    // });
 
     // const filterBreeds = useMemo(
     //   () =>
