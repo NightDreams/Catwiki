@@ -29,9 +29,7 @@ const useBreed = (id) => {
       })
       .catch((error) => {
         // console.log('error objet ', error.toJSON());
-        if (error) {
-          setBreedData({ ...BreedData, error: error, loading: false });
-        }
+
         if (error.response) {
           setBreedData({
             ...BreedData,

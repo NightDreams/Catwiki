@@ -27,9 +27,6 @@ const useBreedList = () => {
         !ignore && setBreedList({ ...BreedList, loading: false, data: e.data });
       })
       .catch((error) => {
-        if (error) {
-          setBreedList({ ...BreedList, error: error, loading: false });
-        }
         if (error.response) {
           setBreedList({
             ...BreedList,

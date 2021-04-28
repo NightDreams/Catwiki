@@ -6,8 +6,14 @@ import useBreedGalery from '../../apiHooks/useBreedGalery';
 const Breed = ({ data }) => {
   const tag = data.breeds[0];
   const id = tag.id;
-  const { GaleryBreed, loading, error } = useBreedGalery(id);
+  const { GaleryBreed } = useBreedGalery(id);
 
+  // if (GaleryBreed?.loading) {
+  //   return <div className="TopBreeds">loading component... </div>;
+  // }
+  // if (GaleryBreed?.error) {
+  //   return <div className="TopBreeds">error component... </div>;
+  // }
   return (
     <>
       <div className="BreedData">
@@ -68,18 +74,15 @@ const Breed = ({ data }) => {
       </div>
       <div className="Breed__pictures">
         <h3>other photos</h3>
-        {loading && <h3>loading </h3>}
         {GaleryBreed && (
           <div className="Breed__wrapper">
-            {GaleryBreed &&
-              GaleryBreed.map((e) => (
-                <figure key={e.id}>
-                  <img src={e.url} alt={name} />
-                </figure>
-              ))}
+            {GaleryBreed?.data.map((e) => (
+              <figure key={e.id}>
+                <img src={e.url} alt={name} />
+              </figure>
+            ))}
           </div>
         )}
-        {error && <h3>error </h3>}
       </div>
     </>
   );
