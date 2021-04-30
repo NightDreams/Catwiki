@@ -5,9 +5,6 @@ import Breed from '../components/organism/Breed';
 
 export const BreedComponent = ({ breedId }) => {
   const { BreedData } = useBreed(breedId);
-  // BreedData && console.log(BreedData);
-  // BreedData && console.log(Breed.breeds[0].id);
-  // error && console.log(error);
   if (BreedData?.loading) {
     return <h2>loading component... </h2>;
   }

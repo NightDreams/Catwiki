@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
 
 import Hero from '../../containers/Hero';
