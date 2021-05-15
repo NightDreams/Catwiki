@@ -27,7 +27,11 @@ const useBreedList = () => {
         !ignore && setBreedList({ ...BreedList, loading: false, data: e.data });
       })
       .catch((error) => {
+        console.log('trigger error');
+
         if (error.response) {
+          console.log('trigger response');
+          console.count('response');
           setBreedList({
             ...BreedList,
             error: error?.response,
@@ -39,6 +43,8 @@ const useBreedList = () => {
           console.log('status', error.response.status);
           console.log('headers', error.response.headers);
         } else if (error.request) {
+          console.count('request');
+
           setBreedList({ ...BreedList, error: error?.request, loading: false });
 
           // The request was made but no response was received
@@ -47,13 +53,11 @@ const useBreedList = () => {
           console.log(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error
-          setBreedList({ ...BreedList, error: error?.message, loading: false });
-
-          console.log('Error', error.message);
+          // setBreedList({ ...BreedList, error: 'bernie', loading: false });
+          setBreedList({ ...BreedList, loading: false, error: error });
+          console.log(error);
+          // console.log('Error', error.error.message);
         }
-        setBreedList({ ...BreedList, error: error?.config, loading: false });
-
-        console.log('config', error.config);
       });
 
     return () => {
