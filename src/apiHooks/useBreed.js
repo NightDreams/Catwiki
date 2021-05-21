@@ -28,8 +28,6 @@ const useBreed = (id) => {
         !ignore && setBreedData({ ...BreedData, loading: false, data: e.data });
       })
       .catch((error) => {
-        // console.log('error objet ', error.toJSON());
-
         if (error.response) {
           setBreedData({
             ...BreedData,
@@ -38,29 +36,21 @@ const useBreed = (id) => {
           });
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          console.log('data ', error.response.data);
-          console.log('status', error.response.status);
-          console.log('headers', error.response.headers);
         } else if (error.request) {
           setBreedData({ ...BreedData, error: error?.request, loading: false });
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
           // http.ClientRequest in node.js
-          console.log(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error
-          console.log('Error', error.message);
           setBreedData({ ...BreedData, error: error?.message, loading: false });
         }
-        setBreedData({ ...BreedData, error: error?.config, loading: false });
-        console.log('config', error.config);
       });
 
     return () => {
       ignore = true;
     };
   }, [id]);
-  // Breed && console.log(Breed);
   return { BreedData };
 };
 

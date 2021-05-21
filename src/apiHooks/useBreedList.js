@@ -8,8 +8,6 @@ const useBreedList = () => {
     error: false,
     data: [],
   });
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(false);
   let rootURL = `https://api.thecatapi.com/v1/breeds`;
 
   var config = {
@@ -27,36 +25,16 @@ const useBreedList = () => {
         !ignore && setBreedList({ ...BreedList, loading: false, data: e.data });
       })
       .catch((error) => {
-        console.log('trigger error');
-
         if (error.response) {
-          console.log('trigger response');
-          console.count('response');
           setBreedList({
             ...BreedList,
-            error: error?.response,
+            error: error.response,
             loading: false,
           });
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.log('data ', error.response.data);
-          console.log('status', error.response.status);
-          console.log('headers', error.response.headers);
         } else if (error.request) {
-          console.count('request');
-
-          setBreedList({ ...BreedList, error: error?.request, loading: false });
-
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-          // http.ClientRequest in node.js
-          console.log(error.request);
+          setBreedList({ ...BreedList, error: error.request, loading: false });
         } else {
-          // Something happened in setting up the request that triggered an Error
-          // setBreedList({ ...BreedList, error: 'bernie', loading: false });
           setBreedList({ ...BreedList, loading: false, error: error });
-          console.log(error);
-          // console.log('Error', error.error.message);
         }
       });
 
@@ -64,7 +42,6 @@ const useBreedList = () => {
       ignore = true;
     };
   }, []);
-  // Breed && console.log(Breed);
   return { BreedList };
 };
 

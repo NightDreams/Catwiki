@@ -7,8 +7,6 @@ const useBreedGalery = (id) => {
     error: false,
     data: [],
   });
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(false);
   const urlImages = `https://api.thecatapi.com/v1/images/search?limit=8&breed_id=${id}`;
 
   var config = {
@@ -26,7 +24,6 @@ const useBreedGalery = (id) => {
           setGaleryBreed({ ...GaleryBreed, loading: false, data: e.data });
       })
       .catch((error) => {
-        // console.log('error objet ', error.toJSON());
         if (error.response) {
           setGaleryBreed({
             ...GaleryBreed,
@@ -35,9 +32,6 @@ const useBreedGalery = (id) => {
           });
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          console.log('data ', error.response.data);
-          console.log('status', error.response.status);
-          console.log('headers', error.response.headers);
         } else if (error.request) {
           setGaleryBreed({
             ...GaleryBreed,
@@ -48,7 +42,6 @@ const useBreedGalery = (id) => {
           // The request was made but no response was received
           // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
           // http.ClientRequest in node.js
-          console.log(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error
           setGaleryBreed({
@@ -56,17 +49,8 @@ const useBreedGalery = (id) => {
             error: error?.message,
             loading: false,
           });
-          console.log('Error', error.message);
         }
-        setGaleryBreed({
-          ...GaleryBreed,
-          error: error?.config,
-          loading: false,
-        });
-
-        console.log('config', error.config);
       });
-    setLoading(false);
     return () => {
       ignore = true;
     };

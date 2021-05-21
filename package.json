@@ -4,8 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watch --coverage",
+    "test": "jest ",
+    "test:watch": "jest --watch ",
     "test:update": "jest --updateSnapshot",
     "start": "webpack serve --mode development --history-api-fallback",
     "build": "webpack --mode production",
